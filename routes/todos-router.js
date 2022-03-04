@@ -17,7 +17,4 @@ router.delete('/:id', TodoAuthorizationMiddleware, TodosController.deleteTodo);
 // PUT /todos/:id
 router.put('/:id', TodoAuthorizationMiddleware, TodosController.updateTodo);
 
-// PATCH /todos/:id
-// router.patch('/:id', TodoAuthorizationMiddleware, TodosController.setDueDate);
-
 module.exports = router;

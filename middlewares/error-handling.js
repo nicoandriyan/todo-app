@@ -7,16 +7,13 @@ function errorHandling(error, req, res, next) {
     } else if (error.name === 'SequelizeUniqueConstraintError') {
       code = 400;
       message = error.errors[0].message;
-    } else if (error.name === 'SequelizeForeignKeyConstraintError') {
+    } else if (error.name === 'SequelizeForeignKeyConstraintError' || error.name === 'BadRequest') {
       code = 400;
       message = 'bad request';
     } else if (error.name === 'SignInFailed') {
       code = 401;
       message = 'wrong email/password'
-    } 
-    
-    // handle new errors here
-    else if (error.name === 'MissingToken') {
+    } else if (error.name === 'MissingToken') {
       code = 401;
       message = 'missing access token'
     } else if (error.name === 'JsonWebTokenError') {
@@ -28,9 +25,7 @@ function errorHandling(error, req, res, next) {
     } else if (error.name === 'Forbidden') {
       code = 403;
       message = 'forbidden'
-    }
-    
-    else if (error.name === 'NotFound') {
+    } else if (error.name === 'NotFound') {
       code = 404;
       message = 'not found';
     } else if (error.name === 'dateInvalid') {

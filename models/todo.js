@@ -66,10 +66,8 @@ module.exports = (sequelize, DataTypes) => {
           msg: `Due date cannot be empty`
         },
         isAfter: {
-          // dikurangi 1 hari karena jika skrg tgl 4 dan user memasukkan tanggal 4 juga, maka akan tidak valid
-          // atau isAfter kemarin
-          args: moment(new Date()).subtract(1, 'days').format('YYYY-MM-DD'),
-          msg: 'Tidak bisa input tanggal sebelum hari ini'
+          args: moment(new Date()).format('YYYY-MM-DD'),
+          msg: 'Tidak bisa input tanggal yang sudah lewat'
         }
       }
     },
