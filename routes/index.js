@@ -7,6 +7,10 @@ const errorHandlingMiddleware = require('./../middlewares/error-handling');
 const adminAuthorizationMiddleware = require('./../middlewares/admin-authorization');
 const authenticationMiddleware = require('./../middlewares/authentication');
 
+router.get('/', (req, res) => {
+    res.send('Server Online')
+});
+
 // POST /sign-in
 router.post('/sign-in', SignInController.signIn);
 
